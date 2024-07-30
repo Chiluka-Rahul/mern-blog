@@ -2,7 +2,7 @@ import React from 'react'
 import { useLocation } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import { DashPosts } from '../components/DashPosts'
-import { DashProfile } from '../components/DashProfile'
+import  DashProfile  from '../components/DashProfile'
 import  DashSidebar from '../components/DashSidebar'
 
 export const Dashboard = () => {
