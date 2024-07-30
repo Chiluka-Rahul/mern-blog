@@ -2,12 +2,28 @@ import { Avatar, Button, Dropdown, Navbar, TextInput } from 'flowbite-react'
 import React from 'react'
 import { Link , useLocation} from 'react-router-dom'
 import {AiOutlineSearch} from 'react-icons/ai'
-import { useSelector } from 'react-redux'
-
+import { useSelector, useDispatch } from 'react-redux'
+import { signoutSuccess } from '../redux/user/userSlice';
 
 export const Header = () => {
     const path = useLocation().pathname;
     const {currentUser} = useSelector((state) => state.user);
+    const dispatch = useDispatch();
+    const handleSignout = async () => {
+        try {
+          const res = await fetch('/server/user/signout', {
+            method: 'POST',
+          });
+          const data = await res.json();
+          if (!res.ok) {
+            console.log(data.message);
+          } else {
+            dispatch(signoutSuccess());
+          }
+        } catch (error) {
+          console.log(error.message);
+        }
+      };
   return (
     <Navbar className='border-b-2'>
         <Link to="/" className='self-center text-sm sm:text-xl font-semibold'>
@@ -46,7 +62,7 @@ export const Header = () => {
                         <Dropdown.Item>Profile</Dropdown.Item>
                     </Link>
                     <Dropdown.Divider />
-                    <Dropdown.Item>Sign out</Dropdown.Item>
+                    <Dropdown.Item onClick={handleSignout}>Sign out</Dropdown.Item>
                 </Dropdown>
 
             ) : (
