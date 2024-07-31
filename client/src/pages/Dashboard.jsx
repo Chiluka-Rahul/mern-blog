@@ -4,6 +4,10 @@ import { useEffect, useState } from 'react'
 import  DashPosts  from '../components/DashPosts'
 import  DashProfile  from '../components/DashProfile'
 import  DashSidebar from '../components/DashSidebar'
+import DashUsers from '../components/DashUsers'
+import DashComments from '../components/DashComments'
+import DashboardComp from '../components/DashboardComp'
+
 
 export const Dashboard = () => {
   const location  = useLocation()
@@ -26,11 +30,11 @@ export const Dashboard = () => {
       {/* posts... */}
       {tab === 'posts' && <DashPosts />}
       {/* users */}
-      {/* {tab === 'users' && <DashUsers />} */}
+      {tab === 'users' && <DashUsers />}
       {/* comments  */}
-      {/* {tab === 'comments' && <DashComments />} */}
+      {tab === 'comments' && <DashComments />}
       {/* dashboard comp */}
-      {/* {tab === 'dash' && <DashboardComp />} */}
+      {tab === 'dash' && <DashboardComp />}
     </div>
   )
 }
