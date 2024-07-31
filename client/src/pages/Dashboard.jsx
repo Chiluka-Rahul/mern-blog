@@ -1,7 +1,7 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import { DashPosts } from '../components/DashPosts'
+import  DashPosts  from '../components/DashPosts'
 import  DashProfile  from '../components/DashProfile'
 import  DashSidebar from '../components/DashSidebar'
 
